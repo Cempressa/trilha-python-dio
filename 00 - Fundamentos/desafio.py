@@ -1,3 +1,5 @@
+import datetime  # Importa o módulo datetime para trabalhar com datas e horas
+
 menu = """
 
 [d] Depositar
@@ -22,7 +24,9 @@ while True:
 
         if valor > 0:
             saldo += valor
-            extrato += f"Depósito: R$ {valor:.2f}\n"
+            # Adiciona a data e hora ao extrato
+            data_hora = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+            extrato += f"{data_hora} - Depósito: R$ {valor:.2f}\n"
 
         else:
             print("Operação falhou! O valor informado é inválido.")
@@ -47,7 +51,9 @@ while True:
 
         elif valor > 0:
             saldo -= valor
-            extrato += f"Saque: R$ {valor:.2f}\n"
+            # Adiciona a data e hora ao extrato
+            data_hora = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+            extrato += f"{data_hora} - Saque: R$ {valor:.2f}\n"
             numero_saques += 1
 
         else:
